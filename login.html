@@ -1,0 +1,130 @@
+
+
+ 
+
+
+
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+  <script src="components/loader.js"></script>
+  <script src="lib/onsenui/js/onsenui.min.js"></script>
+
+  <link rel="stylesheet" href="components/loader.css">
+  <link rel="stylesheet" href="lib/onsenui/css/onsenui.css">
+  <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.css">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- sonradan : details.html-->
+  <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components-blue-basic-theme.css">
+  <link rel="stylesheet" href="css/details.css">
+  <!-- profile.html -->
+  <link rel="stylesheet" href="css/profile.css">
+  <link rel="stylesheet" href="css/login.css">
+  <link rel="stylesheet" href="css/list_thumbnails.css">
+  <link rel="stylesheet" href="css/list_avatars.css">
+  <link rel="stylesheet" href="css/list_with_header.css">
+  <link rel="stylesheet" href="css/list_avatars.css">
+  <link rel="stylesheet" href="css/list_icons.css">
+  <link rel="stylesheet" href="css/signup.css">
+  <script>
+    ons.ready(function () {
+      console.log("Onsen UI is ready!");
+    });
+
+    window.fn = {};
+
+    window.fn.toggleMenu = function () {
+      document.getElementById('appSplitter').right.toggle();
+    };
+
+    window.fn.loadView = function (index) {
+      document.getElementById('appTabbar').setActiveTab(index);
+      document.getElementById('sidemenu').close();
+    };
+
+    window.fn.loadLink = function (url) {
+      window.open(url, '_blank');
+    };
+
+    window.fn.pushPage = function (page, anim) {
+      if (anim) {
+        document.getElementById('appNavigator').pushPage(page.id, { data: { title: page.title }, animation: anim });
+      } else {
+        document.getElementById('appNavigator').pushPage(page.id, { data: { title: page.title } });
+      }
+    };
+  </script>
+</head>
+
+<body>
+   <ons-navigator id="appNavigator" swipeable swipe-target-width="80px">
+	<ons-page>
+	<ons-splitter> <!--  -->
+	<ons-splitter-side id="menu" page="person_cart.html" side="right" width="300px" collapse swipeable> </ons-splitter-side> 
+	   
+	   <ons-splitter-content id="content" page="index.html"></ons-splitter-content>
+	 </ons-splitter> 
+	</ons-page>
+	</ons-navigator>
+
+
+
+
+
+
+
+	<!-- +++ index.html +++ -->
+	<ons-template id="index.html"> <ons-page>    <!-- <ons-toolbar>
+    <div class="center">Log in</div>
+    <div class="right">
+      <ons-toolbar-button><ons-icon icon="ion-gear-a" style="vertical-align: -4px; font-size: 28px;"></ons-icon></ons-toolbar-button>
+    </div>
+  </ons-toolbar> -->
+
+      <div class="profile-card">
+
+        <img src="images/profile-image-01.png" class="profile-image">
+        <div class="profile-name">Dave Graham</div>
+        <div class="profile-id">@davegraham</div>
+        <div class="profile-desc">Freelance designer, software engineer and cyclist</div>
+
+      </div>
+
+      <ons-list>
+
+        <ons-list-item>
+          <ons-row>
+            <ons-col class="info-col" onclick="fn.load('signup_person.html')">
+              <div class="info-num">Sign up</div>
+              <div class="info-unit">super easy to sign up!</div>
+            </ons-col>
+            <ons-col class="info-col" onclick="fn.load('home_person_near.html')">
+              <div class="info-num">Business User?</div>
+              <div class="info-unit">Business Registration</div>
+            </ons-col>
+          </ons-row>
+        </ons-list-item>
+      </ons-list>
+
+      <div class="login-form">
+
+        <input type="email" class="text-input--underbar" placeholder="Email or Phone with country code (+44xxx)"
+          value="">
+        <input type="password" class="text-input--underbar" placeholder="Password" value="">
+        <br><br>
+        <ons-button modifier="large" class="login-button"
+          onclick="fn.load('home_person_near.html')">Log In</ons-button>
+        <br>
+        <ons-button modifier="large" class="login-button">Log In with facebook</ons-button>
+        <ons-button modifier="quiet" class="forgot-password">Forgot password?</ons-button>
+      </div>
+ </ons-page> </ons-template>
+
+</body>
+
+</html>

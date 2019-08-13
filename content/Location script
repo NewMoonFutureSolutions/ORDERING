@@ -1,0 +1,35 @@
+if (navigator.geolocation)
+{
+
+    navigator.geolocation.getCurrentPosition(
+
+        function( position )
+        {
+            init(position);
+            if (Location_Marker)
+            {
+                return;
+            }
+            Location_Marker = Add_Marker(position.coords.latitude,position.coords.longitude,"Initial Position");
+        },
+
+        function( error ){
+            switch(error.code)
+            {
+                **case error.PERMISSION_DENIED:**
+                        console.log( "Permission Denied: ", error );
+                        ons.notification.alert({message:'Please Enable GPS'});
+                        break;
+                **case error.POSITION_UNAVAILABLE:**
+                        console.log( "POSITION_UNAVAILABLE: ", error );
+                        ons.notification.confirm({message:'GPS signals are weak'});
+
+                        break;
+            }
+            console.log( "Something went wrong: ", error );
+            GeoLocation_Not_Supported();
+        }, 
+
+    );
+
+}

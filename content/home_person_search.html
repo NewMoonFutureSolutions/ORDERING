@@ -1,0 +1,59 @@
+<ons-list>
+        <ons-list-header>Search by Id</ons-list-header>
+        <ons-list-item class="input-items">
+          <div class="left">
+            <ons-icon icon="fa-question-circle-o" class="list-item__icon"></ons-icon>
+          </div>
+          <label class="center">
+            <ons-search-input id="search-input" maxlength="20" placeholder="Search"></ons-search-input>
+          </label>
+        </ons-list-item>
+        <ons-list-item>
+          <div class="left left-label">
+            <span id="name-display">Hello anonymous!</span>
+            <ons-icon icon="fa-hand-spock-o" size="lg" class="left-icon"></ons-icon>
+          </div>
+        </ons-list-item>
+      </ons-list>
+
+      <ons-list>
+        <ons-list-header>Search by name</ons-list-header>
+        <ons-list-item class="input-items">
+          <div class="left">
+            <ons-icon icon="fa-question-circle-o" class="list-item__icon"></ons-icon>
+          </div>
+          <label class="center">
+            <ons-search-input id="name-input" maxlength="20" placeholder="Search"></ons-search-input>
+          </label>
+        </ons-list-item>
+        <ons-list-item>
+          <div class="left left-label">
+            <span id="name-display-2">Hello anonymous!</span>
+            <ons-icon icon="fa-hand-spock-o" size="lg" class="left-icon"></ons-icon>
+          </div>
+        </ons-list-item>
+      </ons-list>
+      <ons-list>
+        <ons-list-header>Search by QR code</ons-list-header>
+        <!--  ons-list-item ekle-->
+      </ons-list>
+
+      <script>
+        ons.getScriptPage().onInit = function () {
+          if (ons.platform.isAndroid()) {
+            const inputItems = document.querySelectorAll('.input-items');
+            for (i = 0; i < inputItems.length; i++) {
+              inputItems[i].hasAttribute('modifier') ?
+                inputItems[i].setAttribute('modifier', inputItems[i].getAttribute('modifier') + ' nodivider') :
+                inputItems[i].setAttribute('modifier', 'nodivider');
+            }
+          }
+          var searchInput = document.getElementById('search-input');
+          searchInput.addEventListener('search-input', updateInputs);
+
+          var updateInputs = function (event) {
+            searchInput.value = event.target.value;
+            document.getElementById('name-display').innerHTML = event.target.value !== '' ? `Hello ${event.target.value}!` : 'Hello anonymous!';
+          }
+        }
+      </script>
