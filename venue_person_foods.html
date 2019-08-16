@@ -32,56 +32,44 @@
 
     window.fn = {};
 
-    window.fn.toggleMenu = function () {
-      document.getElementById('appSplitter').right.toggle();
+    window.fn.test=function(option) {
+        if(option=='+') { 
+                       alert('+');
+        if(option=='-') { 
+                       alert('-');               
+                       }
     };
 
-    window.fn.loadView = function (index) {
-      document.getElementById('appTabbar').setActiveTab(index);
-      document.getElementById('sidemenu').close();
-    };
-
-    window.fn.loadLink = function (url) {
-      window.open(url, '_blank');
-    };
-
-    window.fn.pushPage = function (page, anim) {
-      if (anim) {
-        document.getElementById('appNavigator').pushPage(page.id, { data: { title: page.title }, animation: anim });
-      } else {
-        document.getElementById('appNavigator').pushPage(page.id, { data: { title: page.title } });
-      }
-    };
   </script>
 </head>
 
 <body>
-   
 
 
+  <!-- === home_person_foods.html === -->
 
-
- 
-	<!-- +++ venue_person_foods.html +++ -->
-	<ons-page modifier="shop-details"> <ons-toolbar modifier="transparent">
-        <div class="right">
-          <ons-toolbar-button>
-            <ons-icon icon="ion-ios-chatboxes" style="color: white" onclick="fn.load('home_person_near.html')"></ons-icon>
-          </ons-toolbar-button>
-        </div>
-        <div class="left">
-          <ons-toolbar-button>
-            <ons-icon icon="ion-arrow-left-c" style="color: white; font-size: 28px;" fixed-width="false" onclick="fn.load('venue_person.html')"></ons-icon>
-          </ons-toolbar-button>
-        </div>
-      </ons-toolbar>
-      <!-- card'in properties'i her mekan ve menuye gore degisebilir background-image: url(../images/sushi-bg.jpg); -->
-      <div class="card">
-        <div class="card-name">Onsen Sushi</div>
-        <div class="card-desc">Traditional Japanese Sushi<br>Open until 10:30pm</div>
+  <ons-page modifier="shop-details">
+    <ons-toolbar modifier="transparent">
+      <div class="right">
+        <ons-toolbar-button>
+          <ons-icon icon="ion-ios-chatboxes" style="color: white"
+            onclick="fn.pushPage({'id': 'home_person_near.html', 'title': 'none'}, 'none')"></ons-icon>
+        </ons-toolbar-button>
       </div>
+      <div class="left">
+        <ons-toolbar-button>
+          <ons-icon icon="ion-arrow-left-c" style="color: white; font-size: 28px;" fixed-width="false"
+            onclick="fn.pushPage({'id': 'venue_person.html', 'title': 'none'}, 'none')"></ons-icon>
+        </ons-toolbar-button>
+      </div>
+    </ons-toolbar>
+    <!-- card'in properties'i her mekan ve menuye gore degisebilir background-image: url(../images/sushi-bg.jpg); -->
+    <div class="card">
+      <div class="card-name">Onsen Sushi</div>
+      <div class="card-desc">Traditional Japanese Sushi<br>Open until 10:30pm</div>
+    </div>
 
-      <!-- <div class="rating"><div class="rating-num">
+    <!-- <div class="rating"><div class="rating-num">
         <ons-icon icon="fa-star" fixed-width="false"></ons-icon>
         <ons-icon icon="fa-star" fixed-width="false"></ons-icon>
         <ons-icon icon="fa-star" fixed-width="false"></ons-icon>
@@ -90,156 +78,169 @@
         4.5
     </div></div> -->
 
-    <ons-list style="border-top: none">
-        <ons-list-item style="line-height: 1; padding: 0;">
-          <ons-row class="action">
+    <ons-list style="border-top: none; overflow: hidden;">
+      <ons-list-item style="line-height: 1; padding: 0;">
+        <ons-row class="action">
 
-            <ons-col class="action-col">
-              <div class="action-icon">
-                <ons-icon icon="ion-ios-star-half"></ons-icon>
-              </div>
-              <div class="action-label">Go to Main Menu</div>
-            </ons-col>
+          <ons-col class="action-col">
+            <div class="action-icon">
+              <ons-icon icon="ion-ios-star-half"></ons-icon>
+            </div>
+            <div class="action-label">Go to Main Menu</div>
+          </ons-col>
 
-            <ons-col class="action-col">
-              <div class="action-icon">
-                <ons-icon icon="ion-ios-star-half"></ons-icon>
-              </div>
-              <div class="action-label">Your Table</div>
-            </ons-col>
+          <ons-col class="action-col">
+            <div class="action-icon">
+              <ons-icon icon="ion-ios-star-half"></ons-icon>
+            </div>
+            <div class="action-label">Your Table</div>
+          </ons-col>
 
           <!--    <ons-col class="action-col" onClick="fn.toggleMenu()"> -->
-            <ons-col class="action-col" onClick="fn.open()">
-              <div class="action-icon">
-                <ons-icon icon="ion-bookmark"></ons-icon>
-              </div>
-              <div class="action-label">Cart</div>
-            </ons-col>
+          <ons-col class="action-col" onClick="test('+')">
+            <div class="action-icon">
+              <ons-icon icon="ion-bookmark"></ons-icon>
+            </div>
+            <div class="action-label">Cart</div>
+          </ons-col>
 
-          </ons-row>
-        </ons-list-item>
-      </ons-list> 	<!-- +++ venue_person_foods.html +++ -->
-	<!-- SEA FOODS-->
-      <!-- <ons-list-title>Sea foods</ons-list-title> -->
-      <!-- <ons-list modifier="inset"> -->
-      <ons-list>
-        <ons-list-header>Sea foods</ons-list-header>
-        <!-- 1 -->
-        <ons-list-item modifier="chevron" class="list-item-container">
-          <ons-row onclick="fn.load('venue_person.html')">
-            <ons-col width="95px">
-              <img src="images/location1.jpg" class="thumbnail">
-            </ons-col>
-            <ons-col>
-              <div class="name">
-                Lobster
-              </div>
-              <div class="desc">
-                Calories: 89 kcal
+        </ons-row>
+      </ons-list-item>
+    </ons-list> <!-- SEA FOODS-->
+    <!-- <ons-list-title>Sea foods</ons-list-title> -->
+    <!-- <ons-list modifier="inset"> -->
+    <ons-list>
+      <ons-list-header>Sea foods</ons-list-header>
+      <!-- 1 -->
+      <ons-list-item modifier="chevron" class="list-item-container">
+        <ons-row onclick="fn.pushPage({'id': 'venue_person.html', 'title': 'none'}, 'none')">
+          <ons-col width="95px">
+            <img src="images/location1.jpg" class="thumbnail">
+          </ons-col>
+          <ons-col>
+            <div class="name">
+              Lobster
+            </div>
+            <div class="desc">
+              Calories: 89 kcal
               <p class="gram">(100 Gram)</p>
-              </div>
+            </div>
+            <div class="product-count">
               <span class="list-item-note">
+                <button class="btn-dec-r"><img class="btn-dec" src="./images/minus.png"></button>
                 <span class="notification">2</span>
+                <button class="btn-inc-r"><img class="btn-inc" src="./images/plus.png"></button>
               </span>
-            </ons-col>
-            <ons-col width="40px"></ons-col>
-          </ons-row>
-        </ons-list-item>
+            </div>
+          </ons-col>
+          <ons-col width="40px"></ons-col>
+        </ons-row>
+      </ons-list-item>
 
-        <!-- 2 -->
-        <ons-list-item modifier="chevron" class="list-item-container">
-          <ons-row onclick="fn.load('venue_person.html')">
-            <ons-col width="95px">
-              <img src="images/steak.jpg" class="thumbnail">
-            </ons-col>
-            <ons-col>
-              <div class="name">
-                Steak
-              </div>
-              <div class="desc">
-                Calories: 270,5 kcal
+      <!-- 2 -->
+      <ons-list-item modifier="chevron" class="list-item-container">
+        <ons-row onclick="fn.pushPage({'id': 'venue_person.html', 'title': 'none'}, 'none')">
+          <ons-col width="95px">
+            <img src="images/steak.jpg" class="thumbnail">
+          </ons-col>
+          <ons-col>
+            <div class="name">
+              Steak
+            </div>
+            <div class="desc">
+              Calories: 270,5 kcal
               <p class="gram">(100 Gram)</p>
+            </div>
+            <div class="product-count">
+                <span class="list-item-note">
+                  <button class="btn-dec-r"><img class="btn-dec" src="./images/minus.png"></button>
+                  <span class="notification">2</span>
+                  <button class="btn-inc-r"><img class="btn-inc" src="./images/plus.png"></button>
+                </span>
               </div>
-              <span class="list-item-note">
-                <span class="notification">7</span>
-              </span>
-            </ons-col>
-            <ons-col width="40px"></ons-col>
-          </ons-row>
-        </ons-list-item>
-        <!-- 3 & 4   -->
-        <ons-list-item modifier="chevron" class="list-item-container">
-          <ons-row onclick="fn.load('venue_person.html')">
-            <ons-col width="95px">
-              <img src="images/kitkat.jpg" class="thumbnail">
-            </ons-col>
-            <ons-col>
-              <div class="name">
-                KitKat
-              </div>
-              <div class="desc">
-                Calories: 518,4 kcal
+          </ons-col>
+          <ons-col width="40px"></ons-col>
+        </ons-row>
+      </ons-list-item>
+      <!-- 3 & 4   -->
+      <ons-list-item modifier="chevron" class="list-item-container">
+        <ons-row onclick="fn.pushPage({'id': 'venue_person.html', 'title': 'none'}, 'none')">
+          <ons-col width="95px">
+            <img src="images/kitkat.jpg" class="thumbnail">
+          </ons-col>
+          <ons-col>
+            <div class="name">
+              KitKat
+            </div>
+            <div class="desc">
+              Calories: 518,4 kcal
               <p class="gram">(100 Gram)</p>
+            </div>
+            <div class="product-count">
+                <span class="list-item-note">
+                  <button class="btn-dec-r"><img class="btn-dec" src="./images/minus.png"></button>
+                  <span class="notification">2</span>
+                  <button class="btn-inc-r"><img class="btn-inc" src="./images/plus.png"></button>
+                </span>
               </div>
-              <span class="list-item-note">
-                <span class="notification">6</span>
-              </span>
-            </ons-col>
-            <ons-col width="40px"></ons-col>
-          </ons-row>
-        </ons-list-item>
-        <ons-list-item modifier="chevron" class="list-item-container">
-          <ons-row onclick="fn.load('venue_person.html')">
-            <ons-col width="95px">
-              <img src="images/jellybean.jpg" class="thumbnail">
-            </ons-col>
-            <ons-col>
-              <div class="name">
-                Jelly Bean
+          </ons-col>
+          <ons-col width="40px"></ons-col>
+        </ons-row>
+      </ons-list-item>
+      <ons-list-item modifier="chevron" class="list-item-container">
+        <ons-row onclick="fn.pushPage({'id': 'venue_person.html', 'title': 'none'}, 'none')">
+          <ons-col width="95px">
+            <img src="images/jellybean.jpg" class="thumbnail">
+          </ons-col>
+          <ons-col>
+            <div class="name">
+              Jelly Bean
+            </div>
+            <div class="desc">
+              Calories: 374,8 kcal
+              <p class="gram">(100 Gram)</p>
+            </div>
+            <div class="product-count">
+                <span class="list-item-note">
+                  <button class="btn-dec-r"><img class="btn-dec" src="./images/minus.png"></button>
+                  <span class="notification">2</span>
+                  <button class="btn-inc-r"><img class="btn-inc" src="./images/plus.png"></button>
+                </span>
               </div>
-              <div class="desc">
-                Calories: 374,8 kcal
-                <p class="gram">(100 Gram)</p>
+          </ons-col>
+          <ons-col width="40px"></ons-col>
+        </ons-row>
+      </ons-list-item>
+      <!-- 5 -->
+      <ons-list-item modifier="chevron" class="list-item-container">
+        <ons-row onclick="fn.pushPage({'id': 'venue_person.html', 'title': 'none'}, 'none')">
+          <ons-col width="95px">
+            <img src="images/cipura.jpg" class="thumbnail">
+          </ons-col>
+          <ons-col>
+            <div class="name">
+              Sea Bream
+            </div>
+            <div class="desc">
+              Calories: 192 kcal
+              <p class="gram">Grilled Sea Bream (100 Gram)</p>
+            </div>
+            <div class="product-count">
+                <span class="list-item-note">
+                  <button class="btn-dec-r"><img class="btn-dec" src="./images/minus.png"></button>
+                  <span class="notification">2</span>
+                  <button class="btn-inc-r"><img class="btn-inc" src="./images/plus.png"></button>
+                </span>
               </div>
-              <span class="list-item-note">
-                <span class="notification">5</span>
-              </span>
-            </ons-col>
-            <ons-col width="40px"></ons-col>
-          </ons-row>
-        </ons-list-item>
-        <!-- 5 -->
-            <ons-list-item modifier="chevron" class="list-item-container">
-              <ons-row onclick="fn.load('venue_person.html')">
-                <ons-col width="95px">
-                  <img src="images/cipura.jpg" class="thumbnail">
-                </ons-col>
-                <ons-col>
-                  <div class="name">
-                    Sea Bream
-                  </div>
-                  <div class="desc">
-                    Calories: 192 kcal
-                    <p class="gram">Grilled Sea Bream</p>
-                    <p class="gram">(100 Gram)</p>
-                  </div>
-                  <span class="list-item-note">
-                    <span class="notification">5</span>
-                  </span>
-                </ons-col>
-                <ons-col width="40px"></ons-col>
-              </ons-row>
-            </ons-list-item>
-          <!-- <span class="list-item-note">
+          </ons-col>
+          <ons-col width="40px"></ons-col>
+        </ons-row>
+      </ons-list-item>
+      <!-- <span class="list-item-note">
          <span class="notification">10</span>
        </span> -->
-        </ons-list-item>
-      </ons-list> 
- </ons-page> 
-
-
-
-	
+      </ons-list-item>
+    </ons-list>
+  </ons-page>
 </body>
-
 </html>
