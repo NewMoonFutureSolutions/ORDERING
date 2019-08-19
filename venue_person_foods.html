@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="css/login.css">
   <link rel="stylesheet" href="css/list_thumbnails.css">
   <link rel="stylesheet" href="css/list_avatars.css">
-  <link rel="stylesheet" href="css/list_with_header.css">
+  <!-- <link rel="stylesheet" href="css/list_with_header.css"> -->
   <link rel="stylesheet" href="css/list_avatars.css">
   <link rel="stylesheet" href="css/list_icons.css">
   <link rel="stylesheet" href="css/signup.css">
@@ -44,8 +44,24 @@
 </head>
 
 <body>
+  <!-- product count inc ve dec fonksiyonları -->
+  <script type="text/javascript">
+    function inc() {
+      var productcount = document.getElementById('productcount').value;
+      productcount++;
+      if (productcount < 30) {
+        document.getElementById('productcount').value = productcount;
+      }
+    }
 
-
+    function dec() {
+      var value = parseInt(document.getElementById('productcount').value, 10);
+      value = isNaN(value) ? 0 : value;
+      value < 1 ? value = 1 : '';
+      value--;
+      document.getElementById('productcount').value = value;
+    }
+  </script>
   <!-- === home_person_foods.html === -->
 
   <ons-page modifier="shop-details">
@@ -125,11 +141,13 @@
               Calories: 89 kcal
               <p class="gram">(100 Gram)</p>
             </div>
-            <div class="product-count">
+            <div class="productcount">
               <span class="list-item-note">
-                <button class="btn-dec-r"><img class="btn-dec" src="./images/minus.png"></button>
-                <span class="notification">2</span>
-                <button class="btn-inc-r"><img class="btn-inc" src="./images/plus.png"></button>
+                <button class="btn-dec-r" id="dec" onclick="dec()"><img class="btn-dec"
+                    src="./images/minus.png"></button>
+                <input class="count-numb" type="submit" id="productcount" value="0" disabled />
+                <button class="btn-inc-r" id="inc" onclick="inc()"><img class="btn-inc"
+                    src="./images/plus.png"></button>
               </span>
             </div>
           </ons-col>
@@ -151,11 +169,13 @@
               Calories: 270,5 kcal
               <p class="gram">(100 Gram)</p>
             </div>
-            <div class="product-count">
+            <div class="productcount">
               <span class="list-item-note">
-                <button class="btn-dec-r"><img class="btn-dec" src="./images/minus.png"></button>
-                <span class="notification">2</span>
-                <button class="btn-inc-r"><img class="btn-inc" src="./images/plus.png"></button>
+                <button class="btn-dec-r" id="dec" onclick="dec()"><img class="btn-dec"
+                    src="./images/minus.png"></button>
+                <input class="count-numb" type="submit" id="productcount" value="0" disabled />
+                <button class="btn-inc-r" id="inc" onclick="inc()"><img class="btn-inc"
+                    src="./images/plus.png"></button>
               </span>
             </div>
           </ons-col>
@@ -176,11 +196,13 @@
               Calories: 518,4 kcal
               <p class="gram">(100 Gram)</p>
             </div>
-            <div class="product-count">
+            <div class="productcount">
               <span class="list-item-note">
-                <button class="btn-dec-r"><img class="btn-dec" src="./images/minus.png"></button>
-                <span class="notification">2</span>
-                <button class="btn-inc-r"><img class="btn-inc" src="./images/plus.png"></button>
+                <button class="btn-dec-r" id="dec" onclick="dec()"><img class="btn-dec"
+                    src="./images/minus.png"></button>
+                <input class="count-numb" type="submit" id="productcount" value="0" disabled />
+                <button class="btn-inc-r" id="inc" onclick="inc()"><img class="btn-inc"
+                    src="./images/plus.png"></button>
               </span>
             </div>
           </ons-col>
@@ -200,11 +222,13 @@
               Calories: 374,8 kcal
               <p class="gram">(100 Gram)</p>
             </div>
-            <div class="product-count">
+            <div class="productcount">
               <span class="list-item-note">
-                <button class="btn-dec-r"><img class="btn-dec" src="./images/minus.png"></button>
-                <span class="notification">2</span>
-                <button class="btn-inc-r"><img class="btn-inc" src="./images/plus.png"></button>
+                <button class="btn-dec-r" id="dec" onclick="dec()"><img class="btn-dec"
+                    src="./images/minus.png"></button>
+                <input class="count-numb" type="submit" id="productcount" value="0" disabled />
+                <button class="btn-inc-r" id="inc" onclick="inc()"><img class="btn-inc"
+                    src="./images/plus.png"></button>
               </span>
             </div>
           </ons-col>
@@ -225,11 +249,13 @@
               Calories: 192 kcal
               <p class="gram">Grilled Sea Bream (100 Gram)</p>
             </div>
-            <div class="product-count">
+            <div class="productcount">
               <span class="list-item-note">
-                <button class="btn-dec-r"><img class="btn-dec" src="./images/minus.png"></button>
-                <span class="notification">2</span>
-                <button class="btn-inc-r"><img class="btn-inc" src="./images/plus.png"></button>
+                <button class="btn-dec-r" id="dec" onclick="dec()"><img class="btn-dec"
+                    src="./images/minus.png"></button>
+                <input class="count-numb" type="submit" id="productcount" value="0" disabled />
+                <button class="btn-inc-r" id="inc" onclick="inc()"><img class="btn-inc"
+                    src="./images/plus.png"></button>
               </span>
             </div>
           </ons-col>

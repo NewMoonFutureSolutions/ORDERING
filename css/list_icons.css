@@ -18,14 +18,66 @@ ons-list-item > ons-icon {
 .list-item-note {
   position: absolute;
   right: 36px;
-  top: 0px;
   font-size: 14px;
-}
-
-.list-item-note > .notification {
-  margin-top: 12px;
+  margin-top:8px;
   top: 46px;
 }
+.notification {
+  margin: 2px 2px 1px 1px;
+}
+/* count style  */
+.btn-inc {
+  width: 21px;
+  height: auto;
+  color: transparent;
+  cursor: pointer;
+}
+.btn-inc:hover { 
+  background: purple; 
+} 
+.btn-inc:active { 
+  color: yellow; 
+}
+
+.btn-inc-r{
+  border: transparent;
+  background: transparent;
+}
+
+.btn-dec {
+  width: 21px;
+  height: auto;
+  color: transparent;
+  cursor: pointer;
+}
+
+.btn-dec:hover { 
+  background: purple; 
+} 
+.btn-dec:active { 
+  color: yellow; 
+}      
+
+.btn-dec-r{
+  border: transparent;
+  background: transparent;
+}
+.count-numb {
+  text-align: center;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  margin: -10px;
+  width: 53px;
+  height: 26px;
+  border-radius: 2vh;
+  background: transparent;
+  color: rgb(173, 24, 116);
+  border: none;
+  font-size: 27px;
+  padding-left: 12px;
+  padding-right: 14px;
+}
+
 
 .lucent {
   opacity: 0.4;
