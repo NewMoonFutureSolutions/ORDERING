@@ -56,121 +56,188 @@
 </head>
 
 <body>
-   
+  <ons-template id="person_cart.html">
+    <!DOCTYPE HTML>
+    <html>
 
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+      <meta http-equiv="Content-Security-Policy"
+        content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+      <script src="components/loader.js"></script>
+      <script src="lib/onsenui/js/onsenui.min.js"></script>
 
-   <ons-template id="person_cart.html">
-     
+      <link rel="stylesheet" href="components/loader.css">
+      <link rel="stylesheet" href="lib/onsenui/css/onsenui.css">
+      <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.css">
+      <link rel="stylesheet" href="css/style.css">
+      <!-- sonradan : details.html-->
+      <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components-blue-basic-theme.css">
+      <link rel="stylesheet" href="css/details.css">
+      <!-- profile.html -->
+      <link rel="stylesheet" href="css/profile.css">
+      <link rel="stylesheet" href="css/login.css">
+      <link rel="stylesheet" href="css/list_thumbnails.css">
+      <link rel="stylesheet" href="css/list_avatars.css">
+      <link rel="stylesheet" href="css/list_with_header.css">
+      <link rel="stylesheet" href="css/list_count.css">
+      <link rel="stylesheet" href="css/signup.css">
+      <script>
+        ons.ready(function () {
+          console.log("Onsen UI is ready!");
+        });
 
- 
+        window.fn = {};
 
+        window.fn.toggleMenu = function () {
+          document.getElementById('appSplitter').right.toggle();
+        };
 
+        window.fn.loadView = function (index) {
+          document.getElementById('appTabbar').setActiveTab(index);
+          document.getElementById('sidemenu').close();
+        };
 
-<!DOCTYPE HTML>
-<html>
+        window.fn.loadLink = function (url) {
+          window.open(url, '_blank');
+        };
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <meta http-equiv="Content-Security-Policy"
-    content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
-  <script src="components/loader.js"></script>
-  <script src="lib/onsenui/js/onsenui.min.js"></script>
+        window.fn.pushPage = function (page, anim) {
+          if (anim) {
+            document.getElementById('appNavigator').pushPage(page.id, { data: { title: page.title }, animation: anim });
+          } else {
+            document.getElementById('appNavigator').pushPage(page.id, { data: { title: page.title } });
+          }
+        };
+      </script>
+    </head>
 
-  <link rel="stylesheet" href="components/loader.css">
-  <link rel="stylesheet" href="lib/onsenui/css/onsenui.css">
-  <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.css">
-  <link rel="stylesheet" href="css/style.css">
-  <!-- sonradan : details.html-->
-  <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components-blue-basic-theme.css">
-  <link rel="stylesheet" href="css/details.css">
-  <!-- profile.html -->
-  <link rel="stylesheet" href="css/profile.css">
-  <link rel="stylesheet" href="css/login.css">
-  <link rel="stylesheet" href="css/list_thumbnails.css">
-  <link rel="stylesheet" href="css/list_avatars.css">
-  <link rel="stylesheet" href="css/list_with_header.css">
-  <link rel="stylesheet" href="css/list_avatars.css">
-  <link rel="stylesheet" href="css/list_icons.css">
-  <link rel="stylesheet" href="css/signup.css">
-  <script>
-    ons.ready(function () {
-      console.log("Onsen UI is ready!");
-    });
+    <body>
+      <!-- product count inc ve dec fonksiyonları -->
+      <script>
+        function inc() {
+          var productcount = document.getElementById('productcount').value;
+          productcount++;
+          if (productcount < 30) {
+            document.getElementById('productcount').value = productcount;
+          }
+        }
 
-    window.fn = {};
+        function dec() {
+          var value = parseInt(document.getElementById('productcount').value, 10);
+          value = isNaN(value) ? 0 : value;
+          value < 1 ? value = 1 : '';
+          value--;
+          document.getElementById('productcount').value = value;
+        }
+      </script>
+      <ons-navigator id="appNavigator" swipeable swipe-target-width="80px">
+        <ons-page>
+          <ons-splitter>
+            <!--  -->
+            <ons-splitter-side id="menu" page="person_cart.html" side="right" width="300px" collapse swipeable>
+            </ons-splitter-side>
 
-    window.fn.toggleMenu = function () {
-      document.getElementById('appSplitter').right.toggle();
-    };
+            <ons-splitter-content id="content" page="person_cart.html"></ons-splitter-content>
+          </ons-splitter>
+        </ons-page>
+      </ons-navigator>
+      <ons-template id="person_cart.html">
+        <ons-page>
+          <div class="profile-pic">
+            <img src="https://monaca.io/img/logos/download_image_onsenui_01.png">
+          </div>
+          <ons-list-title>Foods</ons-list-title>
+          <ons-list>
+            <ons-list-item onclick="fn.load('home.html')">
+              Home
+              <div class="productcount">
+                <span class="list-item-note">
+                  <button class="btn-dec-r" id="dec" onclick="dec()"><img class="btn-dec"
+                      src="./images/minus.png"></button>
+                  <input class="count-numb" type="submit" id="productcount" value="0" disabled />
+                  <button class="btn-inc-r" id="inc" onclick="inc()"><img class="btn-inc"
+                      src="./images/plus.png"></button>
+                </span>
+              </div>
+            </ons-list-item>
 
-    window.fn.loadView = function (index) {
-      document.getElementById('appTabbar').setActiveTab(index);
-      document.getElementById('sidemenu').close();
-    };
+            <ons-list-item onclick="fn.load('settings.html')">Settings
+              <div class="productcount">
+                <span class="list-item-note">
+                  <button class="btn-dec-r" id="dec" onclick="dec()"><img class="btn-dec"
+                      src="./images/minus.png"></button>
+                  <input class="count-numb" type="submit" id="productcount" value="0" disabled />
+                  <button class="btn-inc-r" id="inc" onclick="inc()"><img class="btn-inc"
+                      src="./images/plus.png"></button>
+                </span>
+              </div>
+            </ons-list-item>
+            <ons-list-item onclick="fn.load('about.html')">About
+              <div class="productcount">
+                <span class="list-item-note">
+                  <button class="btn-dec-r" id="dec" onclick="dec()"><img class="btn-dec"
+                      src="./images/minus.png"></button>
+                  <input class="count-numb" type="submit" id="productcount" value="0" disabled />
+                  <button class="btn-inc-r" id="inc" onclick="inc()"><img class="btn-inc"
+                      src="./images/plus.png"></button>
+                </span>
+              </div>
+            </ons-list-item>
+          </ons-list>
+          <ons-list-title>Drinks</ons-list-title>
+          <ons-list>
+            <ons-list-item onclick="fn.load('home.html')">Home
+              <div class="productcount">
+                <span class="list-item-note">
+                  <button class="btn-dec-r" id="dec" onclick="dec()"><img class="btn-dec"
+                      src="./images/minus.png"></button>
+                  <input class="count-numb" type="submit" id="productcount" value="0" disabled />
+                  <button class="btn-inc-r" id="inc" onclick="inc()"><img class="btn-inc"
+                      src="./images/plus.png"></button>
+                </span>
+              </div>
+            </ons-list-item>
+            <ons-list-item onclick="fn.load('settings.html')">Settings
+              <div class="productcount">
+                <span class="list-item-note">
+                  <button class="btn-dec-r" id="dec" onclick="dec()"><img class="btn-dec"
+                      src="./images/minus.png"></button>
+                  <input class="count-numb" type="submit" id="productcount" value="0" disabled />
+                  <button class="btn-inc-r" id="inc" onclick="inc()"><img class="btn-inc"
+                      src="./images/plus.png"></button>
+                </span>
+              </div>
+            </ons-list-item>
+            <ons-list-item onclick="fn.load('about.html')">About
+              <div class="productcount">
+                <span class="list-item-note">
+                  <button class="btn-dec-r" id="dec" onclick="dec()"><img class="btn-dec"
+                      src="./images/minus.png"></button>
+                  <input class="count-numb" type="submit" id="productcount" value="0" disabled />
+                  <button class="btn-inc-r" id="inc" onclick="inc()"><img class="btn-inc"
+                      src="./images/plus.png"></button>
+                </span>
+              </div>
+            </ons-list-item>
+          </ons-list>
+          <ons-list-title>TOTAL</ons-list-title>
+          <ons-list>
+            <ons-list-item onclick="fn.load('home.html')" tappable>Total</ons-list-item>
+          </ons-list>
+        </ons-page>
+      </ons-template>
 
-    window.fn.loadLink = function (url) {
-      window.open(url, '_blank');
-    };
+    </body>
 
-    window.fn.pushPage = function (page, anim) {
-      if (anim) {
-        document.getElementById('appNavigator').pushPage(page.id, { data: { title: page.title }, animation: anim });
-      } else {
-        document.getElementById('appNavigator').pushPage(page.id, { data: { title: page.title } });
-      }
-    };
-  </script>
-</head>
+    </html>
+  </ons-template>
 
-<body>
-   <ons-navigator id="appNavigator" swipeable swipe-target-width="80px">
-	<ons-page>
-	<ons-splitter> <!--  -->
-	<ons-splitter-side id="menu" page="person_cart.html" side="right" width="300px" collapse swipeable> </ons-splitter-side> 
-	   
-	   <ons-splitter-content id="content" page="person_cart.html"></ons-splitter-content>
-	 </ons-splitter> 
-	</ons-page>
-	</ons-navigator>
-
-
-   <ons-template id="person_cart.html">
-     <ons-page>
-<div class="profile-pic">
-	<img src="https://monaca.io/img/logos/download_image_onsenui_01.png">
-</div>
-
-<ons-list-title>Foods</ons-list-title> 
-<ons-list>
-        <ons-list-item onclick="fn.load('home.html')" tappable>Home</ons-list-item>
-        <ons-list-item onclick="fn.load('settings.html')" tappable>Settings</ons-list-item>
-        <ons-list-item onclick="fn.load('about.html')" tappable>About</ons-list-item>
-</ons-list>
-<ons-list-title>Drinks</ons-list-title> 
-<ons-list>
-        <ons-list-item onclick="fn.load('home.html')" tappable>Home</ons-list-item>
-        <ons-list-item onclick="fn.load('settings.html')" tappable>Settings</ons-list-item>
-        <ons-list-item onclick="fn.load('about.html')" tappable>About</ons-list-item>
-</ons-list>
-<ons-list-title>TOTAL</ons-list-title> 
-<ons-list>
-        <ons-list-item onclick="fn.load('home.html')" tappable>Total</ons-list-item>
-</ons-list>
-</ons-page> 
-   </ons-template>
-
-</body>
-
-</html> 
-   </ons-template>
-
-
-
-
-
-	<!-- +++ signup_person.html +++ -->
-	<template id="signup_person.html"> <ons-page>       <ons-toolbar>
+  <!-- +++ signup_person.html +++ -->
+  <template id="signup_person.html">
+    <ons-page>
+      <ons-toolbar>
         <div class="left">
           <ons-back-button onclick="fn.load('index.html')">Back</ons-back-button>
         </div>
@@ -180,8 +247,7 @@
       <div class="formarea">
         <div class="form-row">
           <input type="text" class="text-input--underbar width-half" placeholder="First" value="">
-          <input type="text" class="text-input--underbar width-half" placeholder="Last" value=""
-            style="border-width-left: 1px">
+          <input type="text" class="text-input--underbar width-half" placeholder="Last" value="">
         </div>
 
         <div class="form-row">
@@ -204,7 +270,9 @@
           <ons-button modifier="large--cta"
             onclick="ons.notification.prompt('Please enter the code you recived on your mobile')">Sign up</ons-button>
         </div>
-      </div> </ons-page> </template>
+      </div>
+    </ons-page>
+  </template>
 
 </body>
 

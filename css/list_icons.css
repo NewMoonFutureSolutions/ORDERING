@@ -18,16 +18,15 @@ ons-list-item > ons-icon {
 .list-item-note {
   position: absolute;
   right: 36px;
-  font-size: 14px;
-  margin-top:8px;
-  top: 46px;
+  margin-top:10px;
+  top: 48px;
 }
 .notification {
   margin: 2px 2px 1px 1px;
 }
 /* count style  */
 .btn-inc {
-  width: 21px;
+  width: 22px;
   height: auto;
   color: transparent;
   cursor: pointer;
@@ -45,7 +44,7 @@ ons-list-item > ons-icon {
 }
 
 .btn-dec {
-  width: 21px;
+  width: 22px;
   height: auto;
   color: transparent;
   cursor: pointer;
@@ -64,12 +63,9 @@ ons-list-item > ons-icon {
 }
 .count-numb {
   text-align: center;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
   margin: -10px;
   width: 53px;
-  height: 26px;
-  border-radius: 2vh;
+  height: auto;
   background: transparent;
   color: rgb(173, 24, 116);
   border: none;
