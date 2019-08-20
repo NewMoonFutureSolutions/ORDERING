@@ -31,29 +31,34 @@
     });
 
     window.fn = {};
+    window.fn.test = function (option) {
+      if (option == '+') {
+        alert('+');
+        if (option == '-') {
+          alert('-');
+        }
+      };
+    };
+
+    window.fn.changeCount= function(op) {
+
+      var productcount = document.getElementById('productcount').value;
+      if(isNaN(productcount)) {productcount=0;}
+      if(op=='+') {
+        productcount++;
+        if (productcount < 30) {document.getElementById('productcount').value = productcount;}
+        else {alert('max 30 orders')}
+      }
+      if(op=='-') {
+        productcount--;
+        if (productcount >= 0) {document.getElementById('productcount').value = productcount;}
+
+      }
+    }
   </script>
 </head>
 
 <body>
-  <!-- product count inc ve dec fonksiyonları -->
-  <script>
-    function inc() {
-      var productcount = document.getElementById('productcount').value;
-      productcount++;
-      if (productcount < 30) {
-        document.getElementById('productcount').value = productcount;
-      }
-    }
-
-    function dec() {
-      var value = parseInt(document.getElementById('productcount').value, 10);
-      value = isNaN(value) ? 0 : value;
-      value < 1 ? value = 1 : '';
-      value--;
-      document.getElementById('productcount').value = value;
-    }
-  </script>
-  <!-- === home_person_foods.html === -->
 
   <ons-page modifier="shop-details">
     <ons-toolbar modifier="transparent">
@@ -91,22 +96,22 @@
 
           <ons-col class="action-col">
             <div class="action-icon">
-              <ons-icon icon="ion-ios-star-half"></ons-icon>
+              <ons-icon icon="ion-ios-home"></ons-icon>
             </div>
             <div class="action-label">Go to Main Menu</div>
           </ons-col>
 
           <ons-col class="action-col">
             <div class="action-icon">
-              <ons-icon icon="ion-ios-star-half"></ons-icon>
+              <ons-icon icon="ion-ios-person"></ons-icon>
             </div>
             <div class="action-label">Your Table</div>
           </ons-col>
 
           <!--    <ons-col class="action-col" onClick="fn.toggleMenu()"> -->
-          <ons-col class="action-col" onClick="test('+')">
+          <ons-col class="action-col" onClick="fn.test('+')">
             <div class="action-icon">
-              <ons-icon icon="ion-bookmark"></ons-icon>
+              <ons-icon icon="ion-ios-cart"></ons-icon>
             </div>
             <div class="action-label">Cart</div>
           </ons-col>
@@ -134,10 +139,10 @@
             </div>
             <div class="productcount">
               <span class="list-item-note">
-                <button class="btn-dec-r" id="dec" onclick="dec()"><img class="btn-dec"
+                <button class="btn-dec-r" id="dec" onclick="fn.changeCount('-')"><img class="btn-dec"
                     src="./images/minus.png"></button>
                 <input class="count-numb" type="submit" id="productcount" value="0" disabled />
-                <button class="btn-inc-r" id="inc" onclick="inc()"><img class="btn-inc"
+                <button class="btn-inc-r" id="inc" onclick="fn.changeCount('+')"><img class="btn-inc"
                     src="./images/plus.png"></button>
               </span>
             </div>
@@ -162,10 +167,10 @@
             </div>
             <div class="productcount">
               <span class="list-item-note">
-                <button class="btn-dec-r" id="dec" onclick="dec()"><img class="btn-dec"
+                <button class="btn-dec-r" id="dec" onclick="fn.changeCount('-')"><img class="btn-dec"
                     src="./images/minus.png"></button>
                 <input class="count-numb" type="submit" id="productcount" value="0" disabled />
-                <button class="btn-inc-r" id="inc" onclick="inc()"><img class="btn-inc"
+                <button class="btn-inc-r" id="inc" onclick="fn.changeCount('+')"><img class="btn-inc"
                     src="./images/plus.png"></button>
               </span>
             </div>
@@ -189,10 +194,10 @@
             </div>
             <div class="productcount">
               <span class="list-item-note">
-                <button class="btn-dec-r" id="dec" onclick="dec()"><img class="btn-dec"
+                <button class="btn-dec-r" id="dec" onclick="fn.changeCount('-')"><img class="btn-dec"
                     src="./images/minus.png"></button>
                 <input class="count-numb" type="submit" id="productcount" value="0" disabled />
-                <button class="btn-inc-r" id="inc" onclick="inc()"><img class="btn-inc"
+                <button class="btn-inc-r" id="inc" onclick="fn.changeCount('+')"><img class="btn-inc"
                     src="./images/plus.png"></button>
               </span>
             </div>
@@ -215,10 +220,10 @@
             </div>
             <div class="productcount">
               <span class="list-item-note">
-                <button class="btn-dec-r" id="dec" onclick="dec()"><img class="btn-dec"
+                <button class="btn-dec-r" id="dec" onclick="fn.changeCount('-')"><img class="btn-dec"
                     src="./images/minus.png"></button>
                 <input class="count-numb" type="submit" id="productcount" value="0" disabled />
-                <button class="btn-inc-r" id="inc" onclick="inc()"><img class="btn-inc"
+                <button class="btn-inc-r" id="inc" onclick="fn.changeCount('+')"><img class="btn-inc"
                     src="./images/plus.png"></button>
               </span>
             </div>
@@ -242,10 +247,10 @@
             </div>
             <div class="productcount">
               <span class="list-item-note">
-                <button class="btn-dec-r" id="dec" onclick="dec()"><img class="btn-dec"
+                <button class="btn-dec-r" id="dec" onclick="fn.changeCount('-')"><img class="btn-dec"
                     src="./images/minus.png"></button>
                 <input class="count-numb" type="submit" id="productcount" value="0" disabled />
-                <button class="btn-inc-r" id="inc" onclick="inc()"><img class="btn-inc"
+                <button class="btn-inc-r" id="inc" onclick="fn.changeCount('+')"><img class="btn-inc"
                     src="./images/plus.png"></button>
               </span>
             </div>
