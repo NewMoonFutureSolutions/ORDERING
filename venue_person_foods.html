@@ -31,7 +31,6 @@
     });
 
     window.fn = {};
-
     window.fn.test = function (option) {
       if (option == '+') {
         alert('+');
@@ -42,6 +41,7 @@
     };
 
     window.fn.changeCount= function(op) {
+
       var productcount = document.getElementById('productcount').value;
       if(isNaN(productcount)) {productcount=0;}
       if(op=='+') {
@@ -55,7 +55,6 @@
 
       }
     }
-
   </script>
 </head>
 
