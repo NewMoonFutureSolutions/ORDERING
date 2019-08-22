@@ -30,6 +30,7 @@
       console.log("Onsen UI is ready!");
     });
 
+
     window.fn = {};
     window.fn.test = function (option) {
       if (option == '+') {
@@ -55,6 +56,25 @@
 
       }
     }
+
+
+    var data={
+      "sku": "001",
+      "group": "FOOD",
+      "subgroup": "Mains",
+      "name": "Ribeye",
+      "description": "Steak",
+      "price": "24.73",
+      "ingredients": "Beef",
+      "expectedServingTimeInMins": 15
+    };
+    function codeInit() {
+            alert('ok');
+            alert(data.sku);
+        }
+        window.onload = codeInit;
+
+
   </script>
 </head>
 
