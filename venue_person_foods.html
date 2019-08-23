@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="css/list_avatars.css">
   <link rel="stylesheet" href="css/list_icons.css">
   <link rel="stylesheet" href="css/signup.css">
-   <!-- for increment, decrement and count line -->
+  <!-- for increment, decrement and count line -->
   <script>
     ons.ready(function () {
       console.log("Onsen UI is ready!");
@@ -42,24 +42,24 @@
       };
     };
 
-    window.fn.changeCount= function(op) {
+    window.fn.changeCount = function (op) {
 
       var productcount = document.getElementById('productcount').value;
-      if(isNaN(productcount)) {productcount=0;}
-      if(op=='+') {
+      if (isNaN(productcount)) { productcount = 0; }
+      if (op == '+') {
         productcount++;
-        if (productcount < 30) {document.getElementById('productcount').value = productcount;}
-        else {alert('max 30 orders')}
+        if (productcount < 30) { document.getElementById('productcount').value = productcount; }
+        else { alert('max 30 orders') }
       }
-      if(op=='-') {
+      if (op == '-') {
         productcount--;
-        if (productcount >= 0) {document.getElementById('productcount').value = productcount;}
+        if (productcount >= 0) { document.getElementById('productcount').value = productcount; }
 
       }
     }
 
 
-    var data={
+    var data = {
       "sku": "001",
       "group": "FOOD",
       "subgroup": "Mains",
@@ -69,12 +69,14 @@
       "ingredients": "Beef",
       "expectedServingTimeInMins": 15
     };
-    function codeInit() {
-            alert('ok');
-            alert(data.sku);
-        }
-        window.onload = codeInit;
+    var menu1 = JSON.stringify(data)
 
+    function codeInit() {
+      document.getElementById("menus1").innerHTML =
+        "<br> Name:  " + data.name + "<br><br>" +
+        "Description: " + data.description;
+    }
+    window.onload = codeInit;
 
   </script>
 </head>
@@ -151,6 +153,7 @@
             <img src="images/location1.jpg" class="thumbnail">
           </ons-col>
           <ons-col>
+            <div id="menus1">
             <div class="name">
               Lobster
             </div>
@@ -158,6 +161,7 @@
               Calories: 89 kcal
               <p class="gram">(100 Gram)</p>
             </div>
+          </div>
             <div class="productcount">
               <span class="list-item-note">
                 <button class="btn-dec-r" id="dec" onclick="fn.changeCount('-')"><img class="btn-dec"
