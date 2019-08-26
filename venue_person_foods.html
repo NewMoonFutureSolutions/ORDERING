@@ -57,32 +57,11 @@
 
       }
     }
-
-
-    var data = {
-      "sku": "001",
-      "group": "FOOD",
-      "subgroup": "Mains",
-      "name": "Ribeye",
-      "description": "Steak",
-      "price": "24.73",
-      "ingredients": "Beef",
-      "expectedServingTimeInMins": 15
-    };
-    var menu1 = JSON.stringify(data)
-
-    function codeInit() {
-      document.getElementById("menus1").innerHTML =
-        "<br> Name:  " + data.name + "<br><br>" +
-        "Description: " + data.description;
-    }
-    window.onload = codeInit;
-
+    
   </script>
 </head>
 
 <body>
-
   <ons-page modifier="shop-details">
     <ons-toolbar modifier="transparent">
       <div class="right">
@@ -145,150 +124,67 @@
     <!-- <ons-list-title>Sea foods</ons-list-title> -->
     <!-- <ons-list modifier="inset"> -->
     <ons-list>
-      <ons-list-header>Sea foods</ons-list-header>
-      <!-- 1 -->
-      <ons-list-item modifier="chevron" class="list-item-container">
-        <ons-row onclick="fn.pushPage({'id': 'venue_person.html', 'title': 'none'}, 'none')">
-          <ons-col width="95px">
-            <img src="images/location1.jpg" class="thumbnail">
-          </ons-col>
-          <ons-col>
-            <div id="menus1">
-            <div class="name">
-              Lobster
-            </div>
-            <div class="desc">
-              Calories: 89 kcal
-              <p class="gram">(100 Gram)</p>
-            </div>
-          </div>
-            <div class="productcount">
-              <span class="list-item-note">
-                <button class="btn-dec-r" id="dec" onclick="fn.changeCount('-')"><img class="btn-dec"
-                    src="./images/minus.png"></button>
-                <input class="count-numb" type="submit" id="productcount" value="0" disabled />
-                <button class="btn-inc-r" id="inc" onclick="fn.changeCount('+')"><img class="btn-inc"
-                    src="./images/plus.png"></button>
-              </span>
-            </div>
-          </ons-col>
-          <ons-col width="40px"></ons-col>
-        </ons-row>
-      </ons-list-item>
-
-      <!-- 2 -->
-      <ons-list-item modifier="chevron" class="list-item-container">
-        <ons-row onclick="fn.pushPage({'id': 'venue_person.html', 'title': 'none'}, 'none')">
-          <ons-col width="95px">
-            <img src="images/steak.jpg" class="thumbnail">
-          </ons-col>
-          <ons-col>
-            <div class="name">
-              Steak
-            </div>
-            <div class="desc">
-              Calories: 270,5 kcal
-              <p class="gram">(100 Gram)</p>
-            </div>
-            <div class="productcount">
-              <span class="list-item-note">
-                <button class="btn-dec-r" id="dec" onclick="fn.changeCount('-')"><img class="btn-dec"
-                    src="./images/minus.png"></button>
-                <input class="count-numb" type="submit" id="productcount" value="0" disabled />
-                <button class="btn-inc-r" id="inc" onclick="fn.changeCount('+')"><img class="btn-inc"
-                    src="./images/plus.png"></button>
-              </span>
-            </div>
-          </ons-col>
-          <ons-col width="40px"></ons-col>
-        </ons-row>
-      </ons-list-item>
-      <!-- 3 & 4   -->
-      <ons-list-item modifier="chevron" class="list-item-container">
-        <ons-row onclick="fn.pushPage({'id': 'venue_person.html', 'title': 'none'}, 'none')">
-          <ons-col width="95px">
-            <img src="images/kitkat.jpg" class="thumbnail">
-          </ons-col>
-          <ons-col>
-            <div class="name">
-              KitKat
-            </div>
-            <div class="desc">
-              Calories: 518,4 kcal
-              <p class="gram">(100 Gram)</p>
-            </div>
-            <div class="productcount">
-              <span class="list-item-note">
-                <button class="btn-dec-r" id="dec" onclick="fn.changeCount('-')"><img class="btn-dec"
-                    src="./images/minus.png"></button>
-                <input class="count-numb" type="submit" id="productcount" value="0" disabled />
-                <button class="btn-inc-r" id="inc" onclick="fn.changeCount('+')"><img class="btn-inc"
-                    src="./images/plus.png"></button>
-              </span>
-            </div>
-          </ons-col>
-          <ons-col width="40px"></ons-col>
-        </ons-row>
-      </ons-list-item>
-      <ons-list-item modifier="chevron" class="list-item-container">
-        <ons-row onclick="fn.pushPage({'id': 'venue_person.html', 'title': 'none'}, 'none')">
-          <ons-col width="95px">
-            <img src="images/jellybean.jpg" class="thumbnail">
-          </ons-col>
-          <ons-col>
-            <div class="name">
-              Jelly Bean
-            </div>
-            <div class="desc">
-              Calories: 374,8 kcal
-              <p class="gram">(100 Gram)</p>
-            </div>
-            <div class="productcount">
-              <span class="list-item-note">
-                <button class="btn-dec-r" id="dec" onclick="fn.changeCount('-')"><img class="btn-dec"
-                    src="./images/minus.png"></button>
-                <input class="count-numb" type="submit" id="productcount" value="0" disabled />
-                <button class="btn-inc-r" id="inc" onclick="fn.changeCount('+')"><img class="btn-inc"
-                    src="./images/plus.png"></button>
-              </span>
-            </div>
-          </ons-col>
-          <ons-col width="40px"></ons-col>
-        </ons-row>
-      </ons-list-item>
-      <!-- 5 -->
-      <ons-list-item modifier="chevron" class="list-item-container">
-        <ons-row onclick="fn.pushPage({'id': 'venue_person.html', 'title': 'none'}, 'none')">
-          <ons-col width="95px">
-            <img src="images/cipura.jpg" class="thumbnail">
-          </ons-col>
-          <ons-col>
-            <div class="name">
-              Sea Bream
-            </div>
-            <div class="desc">
-              Calories: 192 kcal
-              <p class="gram">Grilled Sea Bream (100 Gram)</p>
-            </div>
-            <div class="productcount">
-              <span class="list-item-note">
-                <button class="btn-dec-r" id="dec" onclick="fn.changeCount('-')"><img class="btn-dec"
-                    src="./images/minus.png"></button>
-                <input class="count-numb" type="submit" id="productcount" value="0" disabled />
-                <button class="btn-inc-r" id="inc" onclick="fn.changeCount('+')"><img class="btn-inc"
-                    src="./images/plus.png"></button>
-              </span>
-            </div>
-          </ons-col>
-          <ons-col width="40px"></ons-col>
-        </ons-row>
-      </ons-list-item>
-      <!-- <span class="list-item-note">
-         <span class="notification">10</span>
-       </span> -->
-      </ons-list-item>
+      <ons-list-header style="text-align: center">Sea foods</ons-list-header>
+    <div class="nmfs_menu"></div>
     </ons-list>
   </ons-page>
-</body>
 
+</body>
+<!-- json element, get by class to nmfs_menu  -->
+ <script>
+    var dataNew = {
+      "name": "John",
+      "mains": [
+        { "sku": "001", "group": "FOOD", "subgroup": "Mains", "name": "Steak", "description": "Ribeye", "price": "45.00", "ingredients": "Beef", "expectedServingTimeInMins": 15 },
+        { "sku": "002", "group": "FOOD", "subgroup": "Mains", "name": "Lobster", "description": "Lobster tail", "price": "24.73", "ingredients": "Lobster", "expectedServingTimeInMins": 15 },
+        { "sku": "003", "group": "FOOD", "subgroup": "Mains", "name": "Roll", "description": "Steak roll", "price": "24.73", "ingredients": "Beef", "expectedServingTimeInMins": 15 },
+        { "sku": "001", "group": "FOOD", "subgroup": "Mains", "name": "KitKat", "description": "Tellus eu nullam mi pulvinar.", "price": "5.00", "ingredients": "Beef", "expectedServingTimeInMins": 15 },
+        { "sku": "002", "group": "FOOD", "subgroup": "Mains", "name": "Jelly Bean", "description": "Iaculis ut etiam ultrices mattis.", "price": "4.73", "ingredients": "Lobster", "expectedServingTimeInMins": 15 },
+        { "sku": "003", "group": "FOOD", "subgroup": "Mains", "name": "Sea Bream", "description": "Et odio aenean mauris.", "price": "24.73", "ingredients": "Beef", "expectedServingTimeInMins": 15 }
+      ]
+    };
+
+    function createHtml(dataNew) {
+      let menuElement = document.createElement("div");
+      menuElement.id = "menu";
+
+      dataNew["mains"].forEach(element => {
+        menuElement.innerHTML += `
+      <ons-list-item  modifier="chevron" class="list-item-container">
+        <ons-row>
+          <ons-col width="95px">
+             <img src="images/steak.jpg" class="thumbnail">
+          </ons-col>
+          <ons-col>
+            <div class="name">
+              ${element.name}
+            </div>
+            <div class="desc">
+              ${element.description}
+              <br>
+              <br>
+              ${element.price} ₺
+              <ons-icon icon="ion-ios-information" style="color: black" onclick="fn.showDialog('info-dialog')">
+              </ons-icon>
+            </div>
+            <div class="productcount">
+              <span class="list-item-note">
+                <button class="btn-dec-r" id="dec" onclick="fn.changeCount('-')"><img class="btn-dec"
+                    src="./images/minus.png"></button>
+                <input class="count-numb" type="submit" id="productcount" value="0" disabled />
+                <button class="btn-inc-r" id="inc" onclick="fn.changeCount('+')"><img class="btn-inc"
+                    src="./images/plus.png"></button>
+              </span>
+            </div>
+          </ons-col>
+          <ons-col width="40px"></ons-col>
+        </ons-row>
+      </ons-list-item>
+      `;
+      });
+
+      document.getElementsByClassName("nmfs_menu")[0].appendChild(menuElement);
+    };
+    createHtml(dataNew);
+  </script>
 </html>
