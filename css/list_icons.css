@@ -14,16 +14,25 @@ ons-list-item > ons-icon {
 .list-item-action > ons-icon {
   margin-top: 14px;
 }
-
+@media only screen and (max-width: 768px) {
+  [class*="list-item-note"] {
+    width: 2em;
+    line-height: 2.2em;
+    top:15px !important;
+  }
+}
 .list-item-note {
   position: absolute;
   right: 36px;
   margin-top:10px;
   top: 48px;
 }
+
+
 .notification {
   margin: 2px 2px 1px 1px;
 }
+
 /* count style  */
 .btn-inc {
   width: 22px;
@@ -43,6 +52,7 @@ ons-list-item > ons-icon {
   background: transparent;
 }
 
+
 .btn-dec {
   width: 22px;
   height: auto;
@@ -61,6 +71,14 @@ ons-list-item > ons-icon {
   border: transparent;
   background: transparent;
 }
+
+@media only screen and (max-width: 768px) {
+  [class*="count-numb"] {
+    display: ruby-base-container;
+    width: 56px !important;
+  }
+}
+
 .count-numb {
   text-align: center;
   margin: -10px;
