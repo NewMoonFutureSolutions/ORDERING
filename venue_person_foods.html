@@ -8,6 +8,7 @@
     content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
   <script src="components/loader.js"></script>
   <script src="lib/onsenui/js/onsenui.min.js"></script>
+  <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 
   <link rel="stylesheet" href="components/loader.css">
   <link rel="stylesheet" href="lib/onsenui/css/onsenui.css">
@@ -169,11 +170,9 @@
             </div>
             <div class="productcount">
               <span class="list-item-note">
-                <button class="btn-dec-r" id="dec" onclick="fn.changeCount('-')"><img class="btn-dec"
-                    src="./images/minus.png"></button>
-                <input class="count-numb" type="submit" id="productcount" value="0" disabled />
-                <button class="btn-inc-r" id="inc" onclick="fn.changeCount('+')"><img class="btn-inc"
-                    src="./images/plus.png"></button>
+                <ion-icon name="remove-circle-outline" id="dec" onclick="fn.changeCount('-')"></ion-icon>
+                <input class="count-numb" type="text" id="productcount" value="0" disabled />
+                <ion-icon  name="add-circle-outline" id="inc" onclick="fn.changeCount('+')"></ion-icon>
               </span>
             </div>
           </ons-col>
