@@ -25,53 +25,22 @@ ons-list-item > ons-icon {
     margin: 2px 2px 1px 1px;
   }
   /* count style  */
-  .btn-inc {
-    width: 22px;
-    height: auto;
-    color: transparent;
-    cursor: pointer;
-  }
-  .btn-inc:hover { 
-    background: purple; 
-  } 
-  .btn-inc:active { 
-    color: yellow; 
-  }
   
   .btn-inc-r{
     border: transparent;
     background: transparent;
   }
-  
-  .btn-dec {
-    width: 22px;
-    height: auto;
-    color: transparent;
-    cursor: pointer;
-  }
-  
-  .btn-dec:hover { 
-    background: purple; 
-  } 
-  .btn-dec:active { 
-    color: yellow; 
-  }      
-  
+
   .btn-dec-r{
     border: transparent;
     background: transparent;
   }
   .count-numb {
     text-align: center;
-    margin: -10px;
-    width: 53px;
     height: auto;
     background: transparent;
-    color: rgb(173, 24, 116);
     border: none;
-    font-size: 27px;
-    padding-left: 12px;
-    padding-right: 14px;
+    font-size: 25px;
   }
   
   
