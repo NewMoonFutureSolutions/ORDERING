@@ -18,13 +18,14 @@ ons-list-item > ons-icon {
   [class*="list-item-note"] {
     width: 2em;
     line-height: 2.2em;
-    top:27px !important;
+    top:15px !important;
   }
 }
 .list-item-note {
   position: absolute;
   right: 36px;
-  top: 50px;
+  margin-top:10px;
+  top: 45px;
 }
 
 
@@ -34,7 +35,7 @@ ons-list-item > ons-icon {
 
 /* count style  */
 
-ion-icon {
+/* ion-icon {
   font-size: 22px;
 }
 
@@ -44,26 +45,50 @@ ion-icon:hover {
 
 ion-icon:active {
   color: rgba(173, 24, 116, 0.63);
+} */
+
+zmdi {
+  width: 22px;
+  height: auto;
+  color: transparent;
+  cursor: pointer;
+}
+zmdi:hover { 
+  color: rgba(205, 126, 207, 0.521);
+} 
+zmdi:active { 
+  color: rgba(173, 24, 116, 0.63);
+ 
 }
 
+.btn-inc-r{
+  border: transparent;
+  background: transparent;
+}    
+
+.btn-dec-r{
+  border: transparent;
+  background: transparent;
+}
 
 @media only screen and (max-width: 768px) {
   [class*="count-numb"] {
     display: ruby-base-container;
-    margin: -15px !important;
-    padding-left: 1px !important;
+    margin: -8px !important;
+    padding-left: 12px !important;
   }
 }
 
 .count-numb {
   text-align: center;
-  box-sizing: border-box;
+  margin: -10px;
   width: 53px;
   background: transparent;
   color: rgb(173, 24, 116);
   border: none;
   font-size: 27px;
-
+  padding-left: 12px;
+  padding-right: 14px;
 }
 
 
