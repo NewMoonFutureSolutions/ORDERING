@@ -25,7 +25,7 @@ ons-list-item > ons-icon {
   position: absolute;
   right: 36px;
   margin-top:10px;
-  top: 45px;
+  top: 43px;
 }
 
 
@@ -33,33 +33,6 @@ ons-list-item > ons-icon {
   margin: 2px 2px 1px 1px;
 }
 
-/* count style  */
-
-/* ion-icon {
-  font-size: 22px;
-}
-
-ion-icon:hover {
-  color: rgba(205, 126, 207, 0.521);
-}
-
-ion-icon:active {
-  color: rgba(173, 24, 116, 0.63);
-} */
-
-zmdi {
-  width: 22px;
-  height: auto;
-  color: transparent;
-  cursor: pointer;
-}
-zmdi:hover { 
-  color: rgba(205, 126, 207, 0.521);
-} 
-zmdi:active { 
-  color: rgba(173, 24, 116, 0.63);
- 
-}
 
 .btn-inc-r{
   border: transparent;
@@ -81,12 +54,10 @@ zmdi:active {
 
 .count-numb {
   text-align: center;
-  margin: -10px;
   width: 53px;
   background: transparent;
-  color: rgb(173, 24, 116);
   border: none;
-  font-size: 27px;
+  font-size: 25px;
   padding-left: 12px;
   padding-right: 14px;
 }

@@ -8,6 +8,8 @@
     content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
   <script src="components/loader.js"></script>
   <script src="lib/onsenui/js/onsenui.min.js"></script>
+  
+  <!-- icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css"> 
 
   <link rel="stylesheet" href="components/loader.css">
@@ -17,6 +19,8 @@
   <!-- sonradan : details.html-->
   <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components-blue-basic-theme.css">
   <link rel="stylesheet" href="css/details.css">
+  <!-- for colors -->
+  <link rel="stylesheet" href="css/material-design-color-palette.min.css">
   <!-- profile.html -->
   <link rel="stylesheet" href="css/profile.css">
   <link rel="stylesheet" href="css/login.css">
@@ -170,9 +174,9 @@
             </div>
             <div class="productcount">
               <span class="list-item-note">
-                <button class="btn-dec-r" id="dec" onclick="fn.changeCount('-')"><i class="zmdi zmdi-minus-circle zmdi-hc-2x"></i></button>
-                <input class="count-numb" type="submit" id="productcount" value="0" disabled />
-                <button class="btn-inc-r" id="inc" onclick="fn.changeCount('+')"><i class="zmdi zmdi-plus-circle zmdi-hc-2x"></i></button>
+                <button class="btn-dec-r" id="dec" onclick="fn.changeCount('-')"><i class="zmdi zmdi-minus-circle-outline zmdi-hc-2x mdc-text-orange-600"></i></button>
+                <input class="count-numb mdc-text-orange-300" type="submit" id="productcount" value="0" disabled />
+                <button class="btn-inc-r" id="inc" onclick="fn.changeCount('+')"><i class="zmdi zmdi-plus-circle-o zmdi-hc-2x mdc-text-orange-600"></i></button>
               </span>
             </div>
           </ons-col>
