@@ -7,6 +7,9 @@
 	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta http-equiv="Content-Security-Policy"
 	content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+
+<script src="cordova.js"></script>
+
 <script src="components/loader.js"></script>
 <script src="lib/onsenui/js/onsenui.min.js"></script>
 <script src="lib/nmfs/nmfs.js"></script>
@@ -16,6 +19,8 @@
 <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.css">
 <link rel="stylesheet" href="css/style.css">
 <!-- sonradan : details.html-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css"> 
+<link rel="stylesheet" href="css/material-design-color-palette.min.css">
 <link rel="stylesheet"
 	href="lib/onsenui/css/onsen-css-components-blue-basic-theme.css">
 <link rel="stylesheet" href="css/details.css">
@@ -24,7 +29,9 @@
 <link rel="stylesheet" href="css/login.css">
 <link rel="stylesheet" href="css/list_thumbnails.css">
 <link rel="stylesheet" href="css/list_avatars.css">
+<!--  
 <link rel="stylesheet" href="css/list_with_header.css">
+-->
 <link rel="stylesheet" href="css/list_avatars.css">
 <link rel="stylesheet" href="css/list_icons.css">
 <link rel="stylesheet" href="css/signup.css">
@@ -42,14 +49,10 @@
 	    };
 
     window.fn.load = function(page) {
-    	 // if(page==='venue_person_foods.html'){createHtml1();}
-	      var content = document.getElementById('content');
+    	  var content = document.getElementById('content');
 	      var menu = document.getElementById('menu');
 	      content.load(page)
-	          .then(createHtml1());
-	         //.then(menu.close.bind(menu));
-	        // .then(createHtml1());
-	      //if(page==='venue_person_foods.html'){createHtml1();}
+	        .then(menu.close.bind(menu));
 	    };
 	
 	window.fn.toggleMenu = function() {
@@ -81,48 +84,8 @@
 			});
 		}
 	};
-	
-
-	     // navigator
-	     document.addEventListener('init', function(event) {
-	         var page = event.target;
-	        /*  if (page.id === 'page1') { 
-	        	 page.querySelector('#testID1').onclick = function() {
-	             document.querySelector('#myNavigator').pushPage('page2.html', {data: {title: 'Page 2'}});
-	          }; */
-	          /* page.querySelector('#testID2').onclick = function() {
-	          document.querySelector('#myNavigator').pushPage('page3.html', {data: {title: 'Page 3'}});
-	          }; */
-	          if (page.id === 'venue_person_foods') { 
-	        	  createHtml1();
-	          }
-	          
-	      },false);
-	
-	window.fn.change = function change() {
-	      var myNavigator = document.getElementById('appNavigator');
-	      myNavigator.pushPage('istekler.html');
-	    };
-	
-	 window.fn.loadFoods = function loadFoods() {
-		 
-		 fn.load('venue_person_foods.html');
-		 //createHtml1();
-	    };
-	
-	
 </script>
 <script>
-    
-    window.fn.test = function (option) {
-      if (option == '+') {
-        alert('+');
-        if (option == '-') {
-          alert('-');
-        }
-      };
-    };
-
     window.fn.changeCount = function (op) {
 
       var productcount = document.getElementById('productcount').value;
@@ -138,58 +101,82 @@
 
       }
     }
-     
+    
+    // navigator
+    document.addEventListener('init', function(event) {
+        var page = event.target;
+       /*  if (page.id === 'page1') { 
+       	 page.querySelector('#testID1').onclick = function() {
+            document.querySelector('#myNavigator').pushPage('page2.html', {data: {title: 'Page 2'}});
+         }; */
+         /* page.querySelector('#testID2').onclick = function() {
+         document.querySelector('#myNavigator').pushPage('page3.html', {data: {title: 'Page 3'}});
+         }; */
+         if (page.id === 'venue_person_foods') { 
+       	  createHtml1();
+         }
+         
+     },false);
 
+    function getFoodDetails() {
+        var myNavigator = document.getElementById('appNavigator');
+        myNavigator.pushPage('food_details.html');
+      }
   </script>
 
+ 
 </head>
 
 <body>
 
-	 <ons-navigator id="appNavigator" swipeable swipe-target-width="80px">
-	<ons-page>
-	<ons-splitter> <!--  -->
-	<ons-splitter-side id="menu" page="person_cart.html" side="right" width="300px" collapse swipeable> </ons-splitter-side> 
-	   <!-- <ons-splitter-content page="signup_person.html"></ons-splitter-content> -->
-	   <ons-splitter-content id="content" page="index.html"></ons-splitter-content>
-	 </ons-splitter> 
-	</ons-page>
-	</ons-navigator>
+	
+  <ons-navigator id="appNavigator">
+    <ons-page>
+      <ons-splitter>
+        <ons-splitter-side id="menu" page="person_cart.html" side="right" width="300px" collapse swipeable>
+        </ons-splitter-side>
+        <ons-splitter-content id="content" page="index.html"></ons-splitter-content>
+      </ons-splitter>
+    </ons-page>
+  </ons-navigator>
 
+<ons-template id="person_cart.html">
+  <ons-page id="person_cart">
+	<div class="profile-pic">
+		<img src="https://monaca.io/img/logos/download_image_onsenui_01.png">
+	</div>
 
-
-     <ons-template id="person_cart.html">
-     <ons-page>
-<div class="profile-pic">
-	<img src="https://monaca.io/img/logos/download_image_onsenui_01.png">
-</div>
-
-<ons-list-title>Foods</ons-list-title> 
-<ons-list>
+	<ons-list-title>Foods</ons-list-title> 
+	
+	<ons-list>
         <ons-list-item onclick="fn.load('home.html')" tappable>Home</ons-list-item>
         <ons-list-item onclick="fn.load('settings.html')" tappable>Settings</ons-list-item>
         <ons-list-item onclick="fn.load('about.html')" tappable>About</ons-list-item>
-</ons-list>
-<ons-list-title>Drinks</ons-list-title> 
-<ons-list>
+	</ons-list>
+	
+	<ons-list-title>Drinks</ons-list-title> 
+	<ons-list>
         <ons-list-item onclick="fn.load('home.html')" tappable>Home</ons-list-item>
         <ons-list-item onclick="fn.load('settings.html')" tappable>Settings</ons-list-item>
         <ons-list-item onclick="fn.load('about.html')" tappable>About</ons-list-item>
-</ons-list>
-<ons-list-title>TOTAL</ons-list-title> 
-<ons-list>
+	</ons-list>
+	
+	<ons-list-title>TOTAL</ons-list-title> 
+	<ons-list>
         <ons-list-item onclick="fn.load('home.html')" tappable>Total</ons-list-item>
-</ons-list>
+	</ons-list>
 </ons-page> 
-   </ons-template>
 
+ 
+</ons-template>
 
 	<!-- +++ venue_person.html +++ -->
-	<ons-template id="venue_person.html"> <ons-page
-		modifier="shop-details"> <ons-toolbar modifier="transparent">
+	<ons-template id="venue_person.html">
+	 	<ons-page modifier="shop-details"> 
+	 		<ons-toolbar modifier="transparent">
         <div class="right">
           <ons-toolbar-button>
-            <ons-icon icon="ion-ios-chatboxes" style="color: white" onclick="fn.load('home_person_near.html')"></ons-icon>
+            <ons-icon icon="fa-close" style="color: white" onclick="fn.load('home_person_near.html')"></ons-icon>
           </ons-toolbar-button>
         </div>
         <div class="left">
@@ -224,7 +211,7 @@
               <div class="action-label">Go to Main Menu</div>
             </ons-col>
 
-            <ons-col class="action-col" onClick="createHtml1()">
+            <ons-col class="action-col" onClick="myToast.toggle()">
               <div class="action-icon">
                 <ons-icon icon="ion-ios-person"></ons-icon>
               </div>
@@ -241,10 +228,11 @@
 
           </ons-row>
         </ons-list-item>
-      </ons-list> <ons-list>
+      </ons-list> 
+	 		<ons-list>
         <!-- FOODS -->
-        <ons-list-item  onclick="fn.loadFoods()" modifier="chevron" class="list-item-container">
-          <ons-row>
+        <ons-list-item modifier="chevron" class="list-item-container">
+          <ons-row onclick="fn.load('venue_person_foods.html')">
             <ons-col width="95px">
               <img src="images/foods-1.jpeg" class="thumbnail">
             </ons-col>
@@ -284,15 +272,18 @@
           </ons-row>
         </ons-list-item>
 <ons-list>
-     </ons-page> </ons-template>
+     
+	 	</ons-page> 
+	 </ons-template>
 
 
 	<!-- +++ venue_person_foods.html +++ -->
-	<ons-template id="venue_person_foods.html"> <ons-page id="venue_person_foods"
-		modifier="shop-details"> <ons-toolbar modifier="transparent">
+	<ons-template id="venue_person_foods.html"> 
+		<ons-page id="venue_person_foods"modifier="shop-details"> 
+		<ons-toolbar modifier="transparent">
         <div class="right">
           <ons-toolbar-button>
-            <ons-icon icon="ion-ios-chatboxes" style="color: white" onclick="fn.load('home_person_near.html')"></ons-icon>
+            <ons-icon icon="fa-close" style="color: white" onclick="fn.load('home_person_near.html')"></ons-icon>
           </ons-toolbar-button>
         </div>
         <div class="left">
@@ -301,7 +292,6 @@
           </ons-toolbar-button>
         </div>
       </ons-toolbar>
-         
       <!-- card'in properties'i her mekan ve menuye gore degisebilir background-image: url(../images/sushi-bg.jpg); -->
       <div class="card">
         <div class="card-name">Onsen Sushi</div>
@@ -328,7 +318,7 @@
               <div class="action-label">Go to Main Menu</div>
             </ons-col>
 
-            <ons-col class="action-col" onClick="createHtml1()">
+            <ons-col class="action-col" onClick="myToast.toggle()">
               <div class="action-icon">
                 <ons-icon icon="ion-ios-person"></ons-icon>
               </div>
@@ -345,22 +335,22 @@
 
           </ons-row>
         </ons-list-item>
-      </ons-list> 	
-      
-          <ons-list>
+      </ons-list> 
+			    <ons-list>
       <ons-list-header style="text-align: center">Sea foods</ons-list-header>
     <div class="nmfs_menu"></div>
     </ons-list>
-
- </ons-page> </ons-template>
-
+ 
+		</ons-page> 
+	</ons-template>
 
 	<!-- +++ venue_person_drinks.html +++ -->
-	<ons-template id="venue_person_drinks.html"> <ons-page
-		modifier="shop-details"> <ons-toolbar modifier="transparent">
+	<ons-template id="venue_person_drinks.html"> 
+		<ons-page modifier="shop-details"> 
+			<ons-toolbar modifier="transparent">
         <div class="right">
           <ons-toolbar-button>
-            <ons-icon icon="ion-ios-chatboxes" style="color: white" onclick="fn.load('home_person_near.html')"></ons-icon>
+            <ons-icon icon="fa-close" style="color: white" onclick="fn.load('home_person_near.html')"></ons-icon>
           </ons-toolbar-button>
         </div>
         <div class="left">
@@ -395,7 +385,7 @@
               <div class="action-label">Go to Main Menu</div>
             </ons-col>
 
-            <ons-col class="action-col" onClick="createHtml1()">
+            <ons-col class="action-col" onClick="myToast.toggle()">
               <div class="action-icon">
                 <ons-icon icon="ion-ios-person"></ons-icon>
               </div>
@@ -412,7 +402,8 @@
 
           </ons-row>
         </ons-list-item>
-      </ons-list> <!-- Menu -->
+      </ons-list> 
+			<!-- Menu -->
       <ons-list-title>Beers</ons-list-title>
       <ons-list modifier="inset">
 
@@ -429,11 +420,16 @@
         <ons-list-item modifier="chevron">Efes
           <span class="list-item-note"><span class="notification">10</span></span>
         </ons-list-item>
-      </ons-list> </ons-page> </ons-template>
+      </ons-list> 
+		</ons-page> 
+	</ons-template>
 
 
-	<!-- +++ index.html +++ -->
-	<ons-template id="index.html"> <ons-page>    <!-- <ons-toolbar>
+	<!-- +++ index.html :Login +++ -->
+	<ons-template id="index.html"> 
+		<ons-page id="index"> 
+<!-- LOGIN -->
+   <!-- <ons-toolbar>
     <div class="center">Log in</div>
     <div class="right">
       <ons-toolbar-button><ons-icon icon="ion-gear-a" style="vertical-align: -4px; font-size: 28px;"></ons-icon></ons-toolbar-button>
@@ -441,23 +437,20 @@
   </ons-toolbar> -->
 
       <div class="profile-card">
-
         <img src="images/profile-image-01.png" class="profile-image">
-        <div class="profile-name">Dave Graham</div>
-        <div class="profile-id">@davegraham</div>
-        <div class="profile-desc">Freelance designer, software engineer and cyclist</div>
-
+        <div class="profile-name">UMAI Venues</div>
+        <div class="profile-id">UMAI App</div>
+        <div class="profile-desc">Orders to your table</div>
       </div>
 
       <ons-list>
-
         <ons-list-item>
           <ons-row>
             <ons-col class="info-col" onclick="fn.load('signup_person.html')">
               <div class="info-num">Sign up</div>
               <div class="info-unit">super easy to sign up!</div>
             </ons-col>
-            <ons-col class="info-col" onclick="fn.load('home_person_near.html')">
+            <ons-col class="info-col" onclick="ons.notification.toast('Not ready yet ' , { timeout: 2000 }); ">
               <div class="info-num">Business User?</div>
               <div class="info-unit">Business Registration</div>
             </ons-col>
@@ -466,37 +459,39 @@
       </ons-list>
 
       <div class="login-form">
-
-        <input type="email" class="text-input--underbar" placeholder="Email or Phone with country code (+44xxx)"
-          value="">
+        <input type="email" class="text-input--underbar" placeholder="Email or Phone with country code (+44xxx)" value="">
         <input type="password" class="text-input--underbar" placeholder="Password" value="">
         <br><br>
-        <ons-button modifier="large" class="login-button"
-          onclick="fn.load('home_person_near.html')">Log In</ons-button>
+        <ons-button modifier="large" class="login-button" onclick="fn.load('home_person_near.html')">Log In</ons-button>
         <br>
-        <ons-button modifier="large" class="login-button">Log In with facebook</ons-button>
+        <!-- <ons-button modifier="large" class="login-button">Log In with facebook</ons-button> -->
         <ons-button modifier="quiet" class="forgot-password">Forgot password?</ons-button>
       </div>
- </ons-page> </ons-template>
+</ons-page>      
+<!-- /LOGIN -->
+ 
+	</ons-template>
 
 	<!-- +++ home_person.html: near by +++ -->
-	<ons-template id="home_person_near.html"> <ons-page>
-	<ons-toolbar>
-	<div class="center">Near by</div>
-	</ons-toolbar> <ons-list style="border-top: none">
+	<ons-template id="home_person_near.html"> 
+		<ons-page>
+			<ons-toolbar><div class="center">Near by</div></ons-toolbar> 
+			<!-- HOME HEADER -->
+
+<ons-list style="border-top: none">
         <ons-list-item style="line-height: 1; padding: 0;">
           <ons-row class="action">
 
             <ons-col class="action-col" onclick="fn.load('home_person_near.html')">
               <div class="action-icon">
-                <ons-icon icon="ion-ios-star-half"></ons-icon>
+                <ons-icon icon="ion-android-locate"></ons-icon>
               </div>
               <div class="action-label">Near by</div>
             </ons-col>
 
             <ons-col class="action-col" onclick="fn.load('home_person_fav.html')">
               <div class="action-icon">
-                <ons-icon icon="ion-bookmark"></ons-icon>
+                <ons-icon icon="ion-heart"></ons-icon>
               </div>
               <div class="action-label">Favorites</div>
             </ons-col>
@@ -504,7 +499,7 @@
             <ons-col class="action-col"
               onclick="fn.load('home_person_recent.html')">
               <div class="action-icon">
-                <ons-icon icon="ion-share"></ons-icon>
+                <ons-icon icon="ion-ios-redo"></ons-icon>
               </div>
               <div class="action-label">Recents</div>
             </ons-col>
@@ -512,15 +507,18 @@
             <ons-col class="action-col"
               onclick="fn.load('home_person_search.html')">
               <div class="action-icon">
-                <ons-icon icon="ion-compose"></ons-icon>
+                <ons-icon icon="ion-search"></ons-icon>
               </div>
-              <div class="action-label">Personal Registration</div>
+              <div class="action-label">Search</div>
             </ons-col>
 
           </ons-row>
         </ons-list-item>
       </ons-list>
-	      <ons-list>
+      
+  <!-- /HOME HEADER -->
+			<!-- HOME PERSON NEAR -->
+      <ons-list>
         <ons-list-item modifier="chevron" class="list-item-container">
           <ons-row onclick="fn.load('venue_person.html')">
             <ons-col width="95px">
@@ -561,26 +559,31 @@
           </ons-row>
         </ons-list-item>
       </ons-list>
-	</ons-page> </ons-template>
+      
+<!-- /HOME PERSON NEAR -->
+		</ons-page> 
+	</ons-template>
 
 	<!-- +++ homec_person.html: favorites +++ -->
-	<ons-template id="home_person_fav.html"> <ons-page>
-	<ons-toolbar>
-	<div class="center">Your favorites</div>
-	</ons-toolbar> <ons-list style="border-top: none">
+	<ons-template id="home_person_fav.html"> 
+		<ons-page>
+			<ons-toolbar><div class="center">Your favorites</div></ons-toolbar> 
+			<!-- HOME HEADER -->
+
+<ons-list style="border-top: none">
         <ons-list-item style="line-height: 1; padding: 0;">
           <ons-row class="action">
 
             <ons-col class="action-col" onclick="fn.load('home_person_near.html')">
               <div class="action-icon">
-                <ons-icon icon="ion-ios-star-half"></ons-icon>
+                <ons-icon icon="ion-android-locate"></ons-icon>
               </div>
               <div class="action-label">Near by</div>
             </ons-col>
 
             <ons-col class="action-col" onclick="fn.load('home_person_fav.html')">
               <div class="action-icon">
-                <ons-icon icon="ion-bookmark"></ons-icon>
+                <ons-icon icon="ion-heart"></ons-icon>
               </div>
               <div class="action-label">Favorites</div>
             </ons-col>
@@ -588,7 +591,7 @@
             <ons-col class="action-col"
               onclick="fn.load('home_person_recent.html')">
               <div class="action-icon">
-                <ons-icon icon="ion-share"></ons-icon>
+                <ons-icon icon="ion-ios-redo"></ons-icon>
               </div>
               <div class="action-label">Recents</div>
             </ons-col>
@@ -596,15 +599,18 @@
             <ons-col class="action-col"
               onclick="fn.load('home_person_search.html')">
               <div class="action-icon">
-                <ons-icon icon="ion-compose"></ons-icon>
+                <ons-icon icon="ion-search"></ons-icon>
               </div>
-              <div class="action-label">Personal Registration</div>
+              <div class="action-label">Search</div>
             </ons-col>
 
           </ons-row>
         </ons-list-item>
       </ons-list>
-	      <ons-list>
+      
+  <!-- /HOME HEADER -->
+			<!-- HOME PERSON FAV -->
+      <ons-list>
 
         <ons-list-item modifier="chevron" class="list-item-container">
           <ons-row>
@@ -646,26 +652,31 @@
           </ons-row>
         </ons-list-item>
       </ons-list>
-	</ons-page> </ons-template>
+      
+<!-- /HOME PERSON FAV -->
+		</ons-page> 
+	</ons-template>
 
 	<!-- +++ home_person.html: Recent +++ -->
-	<ons-template id="home_person_recent.html"> <ons-page>
-	<ons-toolbar>
-	<div class="center">Recent locations</div>
-	</ons-toolbar> <ons-list style="border-top: none">
+	<ons-template id="home_person_recent.html"> 
+		<ons-page>
+			<ons-toolbar><div class="center">Recent locations</div></ons-toolbar> 
+			<!-- HOME HEADER -->
+
+<ons-list style="border-top: none">
         <ons-list-item style="line-height: 1; padding: 0;">
           <ons-row class="action">
 
             <ons-col class="action-col" onclick="fn.load('home_person_near.html')">
               <div class="action-icon">
-                <ons-icon icon="ion-ios-star-half"></ons-icon>
+                <ons-icon icon="ion-android-locate"></ons-icon>
               </div>
               <div class="action-label">Near by</div>
             </ons-col>
 
             <ons-col class="action-col" onclick="fn.load('home_person_fav.html')">
               <div class="action-icon">
-                <ons-icon icon="ion-bookmark"></ons-icon>
+                <ons-icon icon="ion-heart"></ons-icon>
               </div>
               <div class="action-label">Favorites</div>
             </ons-col>
@@ -673,7 +684,7 @@
             <ons-col class="action-col"
               onclick="fn.load('home_person_recent.html')">
               <div class="action-icon">
-                <ons-icon icon="ion-share"></ons-icon>
+                <ons-icon icon="ion-ios-redo"></ons-icon>
               </div>
               <div class="action-label">Recents</div>
             </ons-col>
@@ -681,15 +692,18 @@
             <ons-col class="action-col"
               onclick="fn.load('home_person_search.html')">
               <div class="action-icon">
-                <ons-icon icon="ion-compose"></ons-icon>
+                <ons-icon icon="ion-search"></ons-icon>
               </div>
-              <div class="action-label">Personal Registration</div>
+              <div class="action-label">Search</div>
             </ons-col>
 
           </ons-row>
         </ons-list-item>
       </ons-list>
-	      <ons-list>
+      
+  <!-- /HOME HEADER -->
+			<!-- HOME PERSON RECENT -->
+      <ons-list>
 
         <ons-list-item modifier="chevron" class="list-item-container">
           <ons-row>
@@ -731,26 +745,31 @@
           </ons-row>
         </ons-list-item>
       </ons-list>
-	</ons-page> </ons-template>
+      
+<!-- /HOME PERSON RECENT -->
+		</ons-page> 
+	</ons-template>
 
 	<!-- +++ home_person.html: Search +++ -->
-	<ons-template id="home_person_search.html"> <ons-page>
-	<ons-toolbar>
-	<div class="center">Search</div>
-	</ons-toolbar> <ons-list style="border-top: none">
+	<ons-template id="home_person_search.html"> 
+		<ons-page>
+			<ons-toolbar><div class="center">Search</div></ons-toolbar> 
+			<!-- HOME HEADER -->
+
+<ons-list style="border-top: none">
         <ons-list-item style="line-height: 1; padding: 0;">
           <ons-row class="action">
 
             <ons-col class="action-col" onclick="fn.load('home_person_near.html')">
               <div class="action-icon">
-                <ons-icon icon="ion-ios-star-half"></ons-icon>
+                <ons-icon icon="ion-android-locate"></ons-icon>
               </div>
               <div class="action-label">Near by</div>
             </ons-col>
 
             <ons-col class="action-col" onclick="fn.load('home_person_fav.html')">
               <div class="action-icon">
-                <ons-icon icon="ion-bookmark"></ons-icon>
+                <ons-icon icon="ion-heart"></ons-icon>
               </div>
               <div class="action-label">Favorites</div>
             </ons-col>
@@ -758,7 +777,7 @@
             <ons-col class="action-col"
               onclick="fn.load('home_person_recent.html')">
               <div class="action-icon">
-                <ons-icon icon="ion-share"></ons-icon>
+                <ons-icon icon="ion-ios-redo"></ons-icon>
               </div>
               <div class="action-label">Recents</div>
             </ons-col>
@@ -766,15 +785,17 @@
             <ons-col class="action-col"
               onclick="fn.load('home_person_search.html')">
               <div class="action-icon">
-                <ons-icon icon="ion-compose"></ons-icon>
+                <ons-icon icon="ion-search"></ons-icon>
               </div>
-              <div class="action-label">Personal Registration</div>
+              <div class="action-label">Search</div>
             </ons-col>
 
           </ons-row>
         </ons-list-item>
       </ons-list>
-	<ons-list>
+      
+  <!-- /HOME HEADER -->
+			<ons-list>
         <ons-list-header>Search by Id</ons-list-header>
         <ons-list-item class="input-items">
           <div class="left">
@@ -834,38 +855,13 @@
         }
       </script>
 
-
-	</ons-page> </ons-template>
-
-    <!-- +++ person_cart.html +++ -->
-	<template id="person_cart.html"> <ons-page>    <ons-template id="person_cart.html">
-     <ons-page>
-<div class="profile-pic">
-	<img src="https://monaca.io/img/logos/download_image_onsenui_01.png">
-</div>
-
-<ons-list-title>Foods</ons-list-title> 
-<ons-list>
-        <ons-list-item onclick="fn.load('home.html')" tappable>Home</ons-list-item>
-        <ons-list-item onclick="fn.load('settings.html')" tappable>Settings</ons-list-item>
-        <ons-list-item onclick="fn.load('about.html')" tappable>About</ons-list-item>
-</ons-list>
-<ons-list-title>Drinks</ons-list-title> 
-<ons-list>
-        <ons-list-item onclick="fn.load('home.html')" tappable>Home</ons-list-item>
-        <ons-list-item onclick="fn.load('settings.html')" tappable>Settings</ons-list-item>
-        <ons-list-item onclick="fn.load('about.html')" tappable>About</ons-list-item>
-</ons-list>
-<ons-list-title>TOTAL</ons-list-title> 
-<ons-list>
-        <ons-list-item onclick="fn.load('home.html')" tappable>Total</ons-list-item>
-</ons-list>
-</ons-page> 
-   </ons-template>
- </ons-page> </template>
+		</ons-page> 
+	</ons-template>
 
     <!-- +++ signup_person.html +++ -->
-	<template id="signup_person.html"> <ons-page>       <ons-toolbar>
+	<template id="signup_person.html"> 
+		<ons-page id="signup_person"> 
+      <ons-toolbar>
         <div class="left">
           <ons-back-button onclick="fn.load('index.html')">Back</ons-back-button>
         </div>
@@ -878,13 +874,23 @@
           <input type="text" class="text-input--underbar width-half" placeholder="Last" value=""
             style="border-width-left: 1px">
         </div>
-
+         
+         <div class="form-row">
+          <input type="text" class="text-input--underbar width-full" placeholder="Display name (optional: if you prefer)" value="">
+        </div>
+        
         <div class="form-row">
-          <input type="text" class="text-input--underbar width-full" placeholder="Email" value="">
+          <input type="text" class="text-input--underbar width-full" placeholder="Email (Optional)" value="">
         </div>
 
         <div class="form-row">
-          <input type="text" class="text-input--underbar width-full" placeholder="Phone(44xxx)" value="">
+          <ons-select id="choose-sel" onchange="editSelects(event)">
+    			<option value="material" selected>UK(+44)</option>
+    			<option value="material">USA(+1)</option>
+    			<option value="material">Turkiye(+90)</option>
+    			<option value="material">Netherlands(+31)</option>
+  		  </ons-select>
+          <input type="text" class="text-input--underbar width-half" placeholder="Phone number" value="">
         </div>
 
         <div class="form-row">
@@ -899,7 +905,38 @@
           <ons-button modifier="large--cta"
             onclick="ons.notification.prompt('Please enter the code you recived on your mobile')">Sign up</ons-button>
         </div>
-      </div> </ons-page> </template>
+      </div>
+</ons-page> 
+	</template>
+
+    <!-- +++ food_details.html +++ -->
+	<template id="food_details.html"> 
+		<ons-page id="food_details">
+        <ons-toolbar>
+          <div class="left">
+            <ons-back-button>Back</ons-back-button>
+          </div>
+          <div class="center">NMFS</div>
+        </ons-toolbar>
+
+        <div style="text-align: center">
+          <h1>Custom Page</h1>
+
+          <ons-button onclick="appNavigator.popPage()">
+            Pop Page
+          </ons-button>
+        </div>
+ </ons-page>
+ 
+	</template>
+
+<!-- TOAST messages -->
+<ons-toast id="myToast" animation="default">
+  FABs up!
+  <button onclick="myToast.hide()">ok</button>
+</ons-toast>
+
+ 
 
 </body>
 
