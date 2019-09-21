@@ -1,0 +1,41 @@
+<!-- HOME HEADER -->
+
+<ons-list style="border-top: none">
+        <ons-list-item style="line-height: 1; padding: 0;">
+          <ons-row class="action">
+
+            <ons-col class="action-col" onclick="fn.load('home_person_near.html')">
+              <div class="action-icon">
+                <ons-icon icon="ion-android-locate"></ons-icon>
+              </div>
+              <div class="action-label">Near by</div>
+            </ons-col>
+
+            <ons-col class="action-col" onclick="fn.load('home_person_fav.html')">
+              <div class="action-icon">
+                <ons-icon icon="ion-heart"></ons-icon>
+              </div>
+              <div class="action-label">Favorites</div>
+            </ons-col>
+
+            <ons-col class="action-col"
+              onclick="fn.load('home_person_recent.html')">
+              <div class="action-icon">
+                <ons-icon icon="ion-ios-redo"></ons-icon>
+              </div>
+              <div class="action-label">Recents</div>
+            </ons-col>
+
+            <ons-col class="action-col"
+              onclick="fn.load('home_person_search.html')">
+              <div class="action-icon">
+                <ons-icon icon="ion-search"></ons-icon>
+              </div>
+              <div class="action-label"><%=search%></div>
+            </ons-col>
+
+          </ons-row>
+        </ons-list-item>
+      </ons-list>
+      
+  <!-- /HOME HEADER -->
